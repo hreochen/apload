@@ -1,0 +1,10 @@
+
+node_modules
+.DS_Store
+*.config.json
+dist.zip
+test
+yarn.lock
+package-lock.json
+apload.config.json
+apload.config.json
