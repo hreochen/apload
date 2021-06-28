@@ -55,15 +55,22 @@ async function init(name, options) {
         return "请输入密码";
       },
     },
+    {
+      type: "confirm",
+      message: "是否将配置文件追加到gitignore:",
+      name: "isAddGigignore",
+      default: false,
+    },
   ];
 
   let reslut = await inquirer.prompt(promptList);
 
   try {
-    await fs.writeFile(filePath, JSON.stringify(reslut));
+    const { isAddGigignore, ...configField } = reslut;
+    await fs.writeFile(filePath, JSON.stringify(configField));
     const hasGitFile = fs.existsSync(gitignoreFilePath);
     log(chalk.yellow("🖐 初始化配置文件完成"));
-    if (!hasGitFile) return;
+    if (!hasGitFile || !isAddGigignore) return;
     await fs.appendFile(gitignoreFilePath, "\napload.config.json");
   } catch (error) {
     log(chalk.red("❌ 初始化配置文件失败"));

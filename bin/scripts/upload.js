@@ -44,12 +44,12 @@ async function upload(name, options) {
     await ssh.execCommand("unzip -o dist.zip", { cwd: result.cwd });
     await ssh.execCommand("rm -f dist.zip", { cwd: result.cwd });
     shell.rm(zipPath);
-    spinner.succeed("🖐 完成");
+    spinner.succeed("🖐 上传完成");
     process.exit(0);
   } catch (error) {
     shell.rm(zipPath);
     if (error.code === "ENOENT") {
-      spinner.fail(chalk.red("指定配置文件不存在 先运行👉 apload init"));
+      spinner.fail(chalk.red("配置文件不存在 先运行👉 apload init"));
     }
     if (error.code === "ENOTFOUND") {
       spinner.fail(chalk.red("服务器连接失败"));
