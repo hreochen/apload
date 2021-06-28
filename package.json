@@ -1,6 +1,6 @@
 {
   "name": "apload",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "自动压缩上传前端静态文件",
   "main": "./bin/index.js",
   "bin": {
