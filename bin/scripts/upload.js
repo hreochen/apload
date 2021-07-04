@@ -30,7 +30,7 @@ async function upload(name, options) {
       process.exit(0);
     }
   } catch (error) {
-    console.log("@error", error);
+    console.log(error);
   }
   try {
     spinner.text = chalk.yellow("📖 读取文件中...");

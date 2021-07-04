@@ -9,6 +9,16 @@ async function init(name, options) {
   const filePath = path.resolve(cwd, "apload.config.json");
   const gitignoreFilePath = path.resolve(cwd, ".gitignore");
 
+  try {
+    const isHasConfig = fs.existsSync(filePath);
+    if(isHasConfig){
+      log(chalk.yellow("🖐 本地已有配置文件"));
+      process.exit(0);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+
   const promptList = [
     {
       type: "input",
