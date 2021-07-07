@@ -7,6 +7,7 @@ program.version(package.version);
 program
   .command("init")
   .description("Initialize the configuration file")
+  .option("-c,--cover")
   .action((name, options) => {
     require("./scripts/init")(name, options);
   });

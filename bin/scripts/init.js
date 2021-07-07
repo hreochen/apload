@@ -11,7 +11,7 @@ async function init(name, options) {
 
   try {
     const isHasConfig = fs.existsSync(filePath);
-    if(isHasConfig){
+    if (isHasConfig && !name.cover) {
       log(chalk.yellow("🖐 本地已有配置文件"));
       process.exit(0);
     }

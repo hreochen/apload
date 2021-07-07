@@ -3,7 +3,10 @@
 [![npm version](https://badge.fury.io/js/apload.svg)](https://badge.fury.io/js/apload)
 
 ```
-apload init
+apload init -c
+
+-c 覆盖本地已存在配置文件
+
 ```
 
 ```
