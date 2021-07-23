@@ -12,7 +12,7 @@ async function upload(name, options) {
   const filePath = name.config
     ? path.resolve(cwd, name.config)
     : path.resolve(cwd, "apload.config.json");
-  const zipPath = path.resolve(cwd, `dist.zip`);
+  const zipPath = path.resolve(cwd, "dist.zip");
   const willZipPath = name.dist
     ? path.resolve(cwd, name.dist)
     : path.resolve(cwd, "dist");
@@ -23,7 +23,7 @@ async function upload(name, options) {
     if (pathIsHas) {
       await zipFile.zip.compressDir(
         path.resolve(cwd, willZipPath),
-        path.resolve(cwd, `dist.zip`)
+        path.resolve(cwd, "dist.zip")
       );
     } else {
       spinner.fail(chalk.red("文件路径不存在"));
@@ -49,7 +49,7 @@ async function upload(name, options) {
   } catch (error) {
     shell.rm(zipPath);
     if (error.code === "ENOENT") {
-      spinner.fail(chalk.red("配置文件不存在 先运行👉 apload init"));
+      spinner.fail(chalk.red("配置文件不存在 先运行 👉 apload init"));
     }
     if (error.code === "ENOTFOUND") {
       spinner.fail(chalk.red("服务器连接失败"));
