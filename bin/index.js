@@ -8,6 +8,7 @@ program
   .command("init")
   .description("Initialize the configuration file")
   .option("-c,--cover")
+  .option("-o,--output <output>")
   .action((name, options) => {
     require("./scripts/init")(name, options);
   });

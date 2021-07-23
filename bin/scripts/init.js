@@ -6,7 +6,9 @@ const log = console.log;
 
 async function init(name, options) {
   const cwd = options.cwd || process.cwd();
-  const filePath = path.resolve(cwd, "apload.config.json");
+  const filePath = name.output
+    ? path.resolve(cwd, name.output, "apload.config.json")
+    : path.resolve(cwd, "apload.config.json");
   const gitignoreFilePath = path.resolve(cwd, ".gitignore");
 
   try {
